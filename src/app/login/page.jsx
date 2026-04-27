@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "@/context/AuthContext";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
@@ -18,8 +18,7 @@ export default function Login() {
   const { userLogin, setUser, logInWithGoogle } = useContext(AuthContext);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectPath = searchParams.get("redirect") || "/";
+  const redirectPath = "/";
 
   const [emailInput, setEmailInput] = useState("");
   const [loading, setLoading] = useState(false);

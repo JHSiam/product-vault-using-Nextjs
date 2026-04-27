@@ -251,20 +251,21 @@ export default function ManageItemsPage() {
   };
 
   /* ── Loading ── */
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-zinc-950 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 rounded-full border-2 border-emerald-400/30 border-t-emerald-400 animate-spin" />
-          <p className="text-white/30 text-sm">Loading your items…</p>
-        </div>
-      </main>
-    );
-  }
+ 
 
   return (
     <PrivateRoute>
       <main className="min-h-screen bg-zinc-950 text-white">
+
+        {loading ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-10 h-10 rounded-full border-2 border-emerald-400/30 border-t-emerald-400 animate-spin" />
+            <p className="text-white/30 text-sm">Loading your items…</p>
+          </div>
+        </div>
+      ) : (
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
 
           {/* ── Page header ── */}
@@ -378,6 +379,10 @@ export default function ManageItemsPage() {
           )}
 
         </div>
+        
+      )}
+
+        
 
         <ToastContainer
           position="bottom-right"
